@@ -108,6 +108,10 @@ jobs:
             deadline=${deadlines_NUP[${assignment_number}-1]}
           elif [[ "SPBGU" == $university ]]; then
             deadline=${deadlines_SPBGU[${assignment_number}-1]}
+          elif [[ "HSE" == $university ]]; then
+            deadline=${deadlines_HSE[${assignment_number}-1]}
+          elif [[ "ITMO" == $university ]]; then
+            deadline=${deadlines_ITMO[${assignment_number}-1]}
           else
             echo "FIASCO: Wrong university name"
             exit 1
