@@ -103,20 +103,20 @@ jobs:
           )
 
           if [[ "CUB" == $university ]]; then 
-            deadline=${deadlines_CUB[${assignment_number}-1]}
+            deadline=${deadlines_CUB[${assignment}-1]}
           elif [[ "NUP" == $university ]]; then
-            deadline=${deadlines_NUP[${assignment_number}-1]}
+            deadline=${deadlines_NUP[${assignment}-1]}
           elif [[ "SPBGU" == $university ]]; then
-            deadline=${deadlines_SPBGU[${assignment_number}-1]}
+            deadline=${deadlines_SPBGU[${assignment}-1]}
           elif [[ "HSE" == $university ]]; then
-            deadline=${deadlines_HSE[${assignment_number}-1]}
+            deadline=${deadlines_HSE[${assignment}-1]}
           elif [[ "ITMO" == $university ]]; then
-            deadline=${deadlines_ITMO[${assignment_number}-1]}
+            deadline=${deadlines_ITMO[${assignment}-1]}
           else
             echo "FIASCO: Wrong university name"
             exit 1
           fi
-          echo "Deadline for $university for assignment number $assignment_number is $deadline "
+          echo "Deadline for $university for assignment number $assignment is $deadline "
           if [[ $(date +'%Y-%m-%d') > $deadline ]]; then
               echo "FIASCO: The deadline has expired"
               exit 1
