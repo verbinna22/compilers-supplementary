@@ -128,8 +128,16 @@ jobs:
           echo "latest commit time:  ${{ github.event.workflow_run.base }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.url }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels[0] }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels[0].name }}"
+          echo ‘${{ toJSON(github.event.pull_request.labels) }}’
+          echo ‘${{ github.event.pull_request.labels }}’
+          echo “${{ toJson(github.event.pull_request.labels.*.name) }}”
+          echo “${{ github.event.pull_request.labels.*.name }}”
+          echo “${{ toJson(github.event.pull_request.labels[0].name) }}”
+          echo “${{ github.event.pull_request.labels[0].name }}”
+
           
           if [[ $(date +'%Y-%m-%d') > $deadline ]]; then
               echo "FIASCO: The deadline has expired"
