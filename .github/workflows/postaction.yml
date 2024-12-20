@@ -117,6 +117,7 @@ jobs:
             exit 1
           fi
           echo "Deadline for $university for assignment number $assignment is $deadline "
+          echo "latest commit time:  ${{ github.event.workflow_run.event.pull_request.head_commit.timestamp }}"
           if [[ $(date +'%Y-%m-%d') > $deadline ]]; then
               echo "FIASCO: The deadline has expired"
               exit 1
