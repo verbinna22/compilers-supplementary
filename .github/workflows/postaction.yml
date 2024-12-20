@@ -46,60 +46,60 @@ jobs:
       - name: Check Deadline
         run: |
           deadlines_CUB=(
-            "2024-02-19T23:59" 
-            "2024-02-19T23:59" 
-            "2024-02-19T23:59" 
-            "2024-03-04T23:59" 
-            "2024-03-04T23:59" 
-            "2024-03-11T23:59" 
-            "2024-04-08T23:59" 
-            "2024-04-15T23:59" 
-            "2024-06-01T23:59" 
-            "2024-06-01T23:59" 
+            "2024-02-19T23:59:59Z" 
+            "2024-02-19T23:59:59Z" 
+            "2024-02-19T23:59:59Z" 
+            "2024-03-04T23:59:59Z" 
+            "2024-03-04T23:59:59Z" 
+            "2024-03-11T23:59:59Z" 
+            "2024-04-08T23:59:59Z" 
+            "2024-04-15T23:59:59Z" 
+            "2024-06-01T23:59:59Z" 
+            "2024-06-01T23:59:59Z" 
           )
           deadlines_NUP=(
-            "2024-03-04T23:59" 
-            "2024-03-04T23:59" 
-            "2024-03-04T23:59" 
-            "2024-03-11T23:59" 
-            "2024-04-04T23:59" 
-            "2024-04-15T23:59" 
-            "2024-04-15T23:59" 
-            "2024-06-01T23:59" 
-            "2024-06-01T23:59" 
-            "2024-06-01T23:59" 
+            "2024-03-04T23:59:59Z" 
+            "2024-03-04T23:59:59Z" 
+            "2024-03-04T23:59:59Z" 
+            "2024-03-11T23:59:59Z" 
+            "2024-04-04T23:59:59Z" 
+            "2024-04-15T23:59:59Z" 
+            "2024-04-15T23:59:59Z" 
+            "2024-06-01T23:59:59Z" 
+            "2024-06-01T23:59:59Z" 
+            "2024-06-01T23:59:59Z" 
           )
           deadlines_SPBGU=(
-            "2024-03-06T23:59"
-            "2024-03-13T23:59"
-            "2024-03-20T23:59"
-            "2024-03-27T23:59"
-            "2024-04-03T23:59"
-            "2024-04-10T23:59"
-            "2024-04-17T23:59"
-            "2024-04-24T23:59"
-            "2024-05-01T23:59"
-            "2024-05-08T23:59"
-            "2024-05-15T23:59"
-            "2024-05-22T23:59"
+            "2024-03-06T23:59:59Z"
+            "2024-03-13T23:59:59Z"
+            "2024-03-20T23:59:59Z"
+            "2024-03-27T23:59:59Z"
+            "2024-04-03T23:59:59Z"
+            "2024-04-10T23:59:59Z"
+            "2024-04-17T23:59:59Z"
+            "2024-04-24T23:59:59Z"
+            "2024-05-01T23:59:59Z"
+            "2024-05-08T23:59:59Z"
+            "2024-05-15T23:59:59Z"
+            "2024-05-22T23:59:59Z"
           )
           deadlines_ITMO=(
-            "2024-11-09T23:59"
-            "2024-11-16T23:59"
-            "2024-11-23T23:59"
-            "2024-11-30T23:59"
-            "2024-12-07T23:59"
-            "2024-12-14T23:59"
-            "2024-12-21T23:59"
+            "2024-11-09T23:59:59Z"
+            "2024-11-16T23:59:59Z"
+            "2024-11-23T23:59:59Z"
+            "2024-11-30T23:59:59Z"
+            "2024-12-07T23:59:59Z"
+            "2024-12-14T23:59:59Z"
+            "2024-12-21T23:59:59Z"
           )
           deadlines_HSE=(
-            "2024-11-09T23:59"
-            "2024-11-16T23:59"
-            "2024-11-23T23:59"
-            "2024-11-30T23:59"
-            "2024-12-07T23:59"
-            "2024-12-14T23:59"
-            "2024-12-21T23:59"
+            "2024-11-09T23:59:59Z"
+            "2024-11-16T23:59:59Z"
+            "2024-11-23T23:59:59Z"
+            "2024-11-30T23:59:59Z"
+            "2024-12-07T23:59:59Z"
+            "2024-12-14T23:59:59Z"
+            "2024-12-21T23:59:59Z"
           )
 
           if [[ "CUB" == $university ]]; then 
@@ -118,46 +118,41 @@ jobs:
           fi
           echo "Deadline for $university for assignment number $assignment is $deadline "
           echo "latest commit time:  ${{ github.event.workflow_run.event }}"
-          echo "latest commit time:  ${{ github.event.workflow_run }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.head_commit }}"
           echo "latest commit time:  ${{ github.event.workflow_run.head_commit.id }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.head_commit.author.username }}"
           echo "latest commit time:  ${{ github.event.workflow_run.head_commit.author.name }}"
           echo "latest commit time:  ${{ github.event.workflow_run.head_commit.timestamp }}"
           echo "latest commit time:  ${{ github.event.workflow_run.head_branch }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.base }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests }}"
-          echo "latest commit time:  ${{ toJson(github.event.workflow_run.pull_requests) }}"
-          echo "latest commit time:  ${{ toJson(github.event.workflow_run) }}"
-          echo "latest commit time:  ${{ toJson(github.event) }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.url }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels[0] }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels[0].name }}"
-          echo ‘${{ toJSON(github.event.pull_request.labels) }}’
-          echo ‘${{ github.event.pull_request.labels }}’
-          echo “${{ toJson(github.event.pull_request.labels.*.name) }}”
-          echo “${{ github.event.pull_request.labels.*.name }}”
-          echo “${{ toJson(github.event.pull_request.labels[0].name) }}”
-          echo “${{ github.event.pull_request.labels[0].name }}”
-          echo “${{ github.event.workflow_run.pull_requests }}”
-          echo “${{ toJson(github.event.workflow_run.pull_requests) }}”
-          echo "latest commit time:  ${{ github.event.pull_request }}"
-          echo "latest commit time:  ${{ github.event.pull_request.number }}"
-          echo "latest commit time:  ${{ github.event.pull_request._links }}"
-          echo "latest commit time:  ${{ toJson(github.event.pull_request._links) }}"
-          echo "latest commit time:  ${{ github.event.pull_request.comments }}"
-          echo "latest commit time:  ${{ toJson(github.event.pull_request.comments) }}"
-          echo "latest commit time:  ${{ github.event.pull_request.commits }}"
-          echo "latest commit time:  ${{ toJson(github.event.pull_request.commits) }}"
-          echo "latest commit time:  ${{ github.event.pull_request.changed_files }}"
-          echo "latest commit time:  ${{ github.event.pull_request.title }}"
-          
-          if [[ $(date +'%Y-%m-%d') > $deadline ]]; then
+
+          submission_time=${{ github.event.workflow_run.head_commit.timestamp }}
+          if [[ $submission_time > $deadline ]]; then
               echo "FIASCO: The deadline has expired"
               exit 1
           fi
-          echo "OK: you are on time!"
+          echo "OK: you are on time!"          
+# if [[ $(date +'%Y-%m-%d') > $deadline ]]; then
+#     echo "FIASCO: The deadline has expired"
+#     exit 1
+# fi
+# echo "OK: you are on time!"
+# echo "latest commit time:  ${{ toJson(github.event) }}"
+# echo ‘${{ toJSON(github.event.pull_request.labels) }}’
+# echo ‘${{ github.event.pull_request.labels }}’
+# echo “${{ toJson(github.event.pull_request.labels.*.name) }}”
+# echo “${{ github.event.pull_request.labels.*.name }}”
+# echo “${{ toJson(github.event.pull_request.labels[0].name) }}”
+# echo “${{ github.event.pull_request.labels[0].name }}”
+# echo “${{ github.event.workflow_run.pull_requests }}”
+# echo “${{ toJson(github.event.workflow_run.pull_requests) }}”
+# echo "latest commit time:  ${{ github.event.pull_request }}"
+# echo "latest commit time:  ${{ github.event.pull_request.number }}"
+# echo "latest commit time:  ${{ github.event.pull_request._links }}"
+# echo "latest commit time:  ${{ toJson(github.event.pull_request._links) }}"
+# echo "latest commit time:  ${{ github.event.pull_request.comments }}"
+# echo "latest commit time:  ${{ toJson(github.event.pull_request.comments) }}"
+# echo "latest commit time:  ${{ github.event.pull_request.commits }}"
+# echo "latest commit time:  ${{ toJson(github.event.pull_request.commits) }}"
+# echo "latest commit time:  ${{ github.event.pull_request.changed_files }}"
+# echo "latest commit time:  ${{ github.event.pull_request.title }}"
 # - name: Check out code
 #   uses: actions/checkout@v2 
 # - name: Comment PR
