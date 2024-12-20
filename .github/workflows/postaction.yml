@@ -125,7 +125,7 @@ jobs:
 
           submission_time=${{ github.event.workflow_run.head_commit.timestamp }}
           if [[ $submission_time > $deadline ]]; then
-              echo "result=0" >> $GITHUB_ENV
+              echo "result=0.1" >> $GITHUB_ENV
               echo "FIASCO: The deadline has expired"
           else
               echo "result=1" >> $GITHUB_ENV
