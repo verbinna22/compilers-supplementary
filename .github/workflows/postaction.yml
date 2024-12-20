@@ -201,7 +201,7 @@ jobs:
               echo "::set-output name=id::$j"
             else
               echo "Strings are not equal."
-              if [ -z "$t" ]; then
+              if [ -z "$t" ] || [ "t" = ""]; then
                 echo "$t is null"
                 break
               else
