@@ -117,18 +117,18 @@ jobs:
             exit 1
           fi
           echo "Deadline for $university for assignment number $assignment is $deadline "
-          echo "latest commit time:  ${{ github.event.workflow_run.event.head_commit.timestamp }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.event.head_commit }}"
           echo "latest commit time:  ${{ github.event.workflow_run.event }}"
           echo "latest commit time:  ${{ github.event.workflow_run }}"
           echo "latest commit time:  ${{ github.event.workflow_run.head_commit }}"
-          echo "latest commit time:  ${{ github.event.workflow_run.head_commit.author }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.head_commit.author.username }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.head_commit.author.name }}"
           echo "latest commit time:  ${{ github.event.workflow_run.head_commit.timestamp }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.head_branch }}"
           echo "latest commit time:  ${{ github.event.workflow_run.base }}"
-          echo "latest commit time:  ${{ github.event.issue.pull_request }}"
-          echo "latest commit time:  ${{ github.event.issue.pull_request.base }}"
-          echo "latest commit time:  ${{ github.event.issue.pull_request.event }}"
-          echo "latest commit time:  ${{ github.event.issue.pull_request.event.base }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.url }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests[0] }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.pull_requests[0].name }}"
           
           if [[ $(date +'%Y-%m-%d') > $deadline ]]; then
               echo "FIASCO: The deadline has expired"
