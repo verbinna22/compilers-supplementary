@@ -128,6 +128,8 @@ jobs:
           echo "latest commit time:  ${{ github.event.workflow_run.base }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests }}"
           echo "latest commit time:  ${{ toJson(github.event.workflow_run.pull_requests) }}"
+          echo "latest commit time:  ${{ toJson(github.event.workflow_run }}"
+          echo "latest commit time:  ${{ toJson(github.event }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.url }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels[0] }}"
