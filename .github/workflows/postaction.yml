@@ -121,6 +121,12 @@ jobs:
           echo "latest commit time:  ${{ github.event.workflow_run.event.head_commit }}"
           echo "latest commit time:  ${{ github.event.workflow_run.event }}"
           echo "latest commit time:  ${{ github.event.workflow_run }}"
+          echo "latest commit time:  ${{ github.event.workflow_run.base }}"
+          echo "latest commit time:  ${{ github.event.issue.pull_request }}"
+          echo "latest commit time:  ${{ github.event.issue.pull_request.base }}"
+          echo "latest commit time:  ${{ github.event.issue.pull_request.event }}"
+          echo "latest commit time:  ${{ github.event.issue.pull_request.event.base }}"
+          
           if [[ $(date +'%Y-%m-%d') > $deadline ]]; then
               echo "FIASCO: The deadline has expired"
               exit 1
