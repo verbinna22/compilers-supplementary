@@ -188,7 +188,7 @@ jobs:
           gitid="\"${{ env.login }}\""
           j=0
           lastrow=0
-          for i in {1..200}
+          for i in {1..100}
           do
             t=$(echo "${cmd}" | jq ".[$i][0]")
             echo "$t"
@@ -201,7 +201,7 @@ jobs:
               echo "::set-output name=id::$j"
             else
               echo "Strings are not equal."
-              if [ -z $t ] || [ $t = "" ] || [ $t = "\"\"" ] || [ "$t" = "\"\"" ] || [ "$t" = "" ]; then
+              if [ -z $t ] || [ -z "$t" ] || [ $t = null ] || [ $t = "" ] || [ $t = "\"\"" ] || [ "$t" = "\"\"" ] || [ "$t" = "" ]; then
                 echo "$t is null"
                 break
               else
