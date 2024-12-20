@@ -125,10 +125,12 @@ jobs:
 
           submission_time=${{ github.event.workflow_run.head_commit.timestamp }}
           if [[ $submission_time > $deadline ]]; then
+              echo "result=0" >> $GITHUB_ENV
               echo "FIASCO: The deadline has expired"
-              exit 1
+          else
+              echo "result=1" >> $GITHUB_ENV
+              echo "OK: you are on time!"
           fi
-          echo "OK: you are on time!"          
 # if [[ $(date +'%Y-%m-%d') > $deadline ]]; then
 #     echo "FIASCO: The deadline has expired"
 #     exit 1
@@ -184,7 +186,6 @@ jobs:
           branch=${{ env.base }}
           assignment=${{ env.assignment }}
           gitid="\"${{ env.login }}\""
-          result=1
           j=0
           for i in {1..200}
           do
