@@ -127,7 +127,6 @@ jobs:
           echo "latest commit time:  ${{ github.event.workflow_run.head_branch }}"
           echo "latest commit time:  ${{ github.event.workflow_run.base }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests }}"
-          echo "latest commit time:  ${{  }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.url }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels }}"
           echo "latest commit time:  ${{ github.event.workflow_run.pull_requests.labels[0] }}"
