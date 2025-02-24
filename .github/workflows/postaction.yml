@@ -16,26 +16,34 @@ jobs:
       output_id_number: ${{ steps.step1.outputs.id }}
     steps:
       - name: 'Download artifact'
-        uses: actions/github-script@v4
+        uses: actions/upload-artifact@v4
         with:
-          script: |
-            console.log(${{ github.event.workflow_run.id }});
-            var artifacts = await github.actions.listWorkflowRunArtifacts({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               run_id: ${{ github.event.workflow_run.id }},
-            });
-            var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
-              return artifact.name == "share_info";
-            })[0];
-            var download = await github.actions.downloadArtifact({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               artifact_id: matchArtifact.id,
-               archive_format: 'zip',
-            });
-            var fs = require('fs');
-            fs.writeFileSync('${{ github.workspace }}/share_info.zip', Buffer.from(download.data));
+          name: share_info
+          path: |
+            gitid.txt
+            base.txt
+            assignment_number.txt
+            university.txt
+        # uses: actions/github-script@v4
+        # with:
+        #   script: |
+        #     console.log(${{ github.event.workflow_run.id }});
+        #     var artifacts = await github.actions.listWorkflowRunArtifacts({
+        #        owner: context.repo.owner,
+        #        repo: context.repo.repo,
+        #        run_id: ${{ github.event.workflow_run.id }},
+        #     });
+        #     var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+        #       return artifact.name == "share_info";
+        #     })[0];
+        #     var download = await github.actions.downloadArtifact({
+        #        owner: context.repo.owner,
+        #        repo: context.repo.repo,
+        #        artifact_id: matchArtifact.id,
+        #        archive_format: 'zip',
+        #     });
+        #     var fs = require('fs');
+        #     fs.writeFileSync('${{ github.workspace }}/share_info.zip', Buffer.from(download.data));
 
       - run: unzip share_info.zip
       - run: |
