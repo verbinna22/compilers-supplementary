@@ -17,8 +17,16 @@ jobs:
     steps:
       - name: 'Download artifact'
         uses: actions/download-artifact@v4
+        with:
+          name: share_info
+          path: |
+            gitid.txt
+            base.txt
+            assignment_number.txt
+            university.txt
       - name: Display structure of downloaded files
         run: ls -R
+        run: ls -R share_info
         # with:
         #   name: share_info
         #   path: |
@@ -47,7 +55,7 @@ jobs:
         #     var fs = require('fs');
         #     fs.writeFileSync('${{ github.workspace }}/share_info.zip', Buffer.from(download.data));
 
-      # - run: unzip share_info.zip
+      - run: unzip share_info.zip
       - run: |
           echo "university=$(cat university.txt)" >> $GITHUB_ENV
           echo "assignment=$(cat assignment_number.txt)" >> $GITHUB_ENV
