@@ -16,7 +16,7 @@ jobs:
       output_id_number: ${{ steps.step1.outputs.id }}
     steps:
       - name: 'Download artifact'
-        uses: actions/github-script@v3.1.0
+        uses: actions/github-script@v4
         with:
           script: |
             console.log(${{ github.event.workflow_run.id }});
