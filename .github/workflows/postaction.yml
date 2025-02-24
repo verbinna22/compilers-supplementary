@@ -25,8 +25,9 @@ jobs:
             assignment_number.txt
             university.txt
       - name: Display structure of downloaded files
-        run: ls -R
-        run: ls -R share_info
+        run: |
+          ls -R
+          ls -R share_info
         # with:
         #   name: share_info
         #   path: |
