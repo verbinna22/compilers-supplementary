@@ -20,7 +20,7 @@ jobs:
         with:
           script: |
             console.log(${{ github.event.workflow_run.id }});
-            var artifacts = await github.actions.listWorkflowRunArtifacts({
+            var artifacts = await github.rest.actions.listWorkflowRunArtifacts({
                owner: context.repo.owner,
                repo: context.repo.repo,
                run_id: ${{ github.event.workflow_run.id }},
